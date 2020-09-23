@@ -15,13 +15,11 @@ class App < Sinatra::Base
     $logger = Logger.new(STDOUT)
     set :haml, :format => :html5
     set :static_cache_control, [:public, :max_age => 300]
-    set :public_folder, File.dirname(__FILE__) + '/static'
+    set :public_folder, File.dirname(__FILE__) + '/public'
+    $logger.info("Serving static files from #{File.dirname(__FILE__)}/public")
   end
 
   get '/' do
-    haml '%div.title Hello World'
+    haml '%div.title Hello World!'
   end
 end
-
-current_dir = Dir.pwd
-Dir["#{current_dir}/models/*.rb"].each { |file| require file }

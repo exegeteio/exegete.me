@@ -14,7 +14,7 @@
         "^vendor/bundle"
       ],
       "include": [
-        ""
+        ".rb$"
       ]
     },
     "throttle": 1000
