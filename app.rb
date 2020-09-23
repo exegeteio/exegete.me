@@ -15,10 +15,11 @@ class App < Sinatra::Base
   configure do
     $logger = Logger.new(STDOUT)
     set :haml, :format => :html5
+    set :markdown, :layout_engine => :haml
     set :static_cache_control, [:public, max_age: 300]
   end
 
   get '/' do
-    markdown :README, :layout_engine => :erb
+    markdown File.read('README.md')
   end
 end
