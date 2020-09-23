@@ -1,9 +1,46 @@
-# hello-express
+# Sinatra - Glitch
 
-A server that serves a webpage, its resources, and some data
+[Glitch](https://glitch.com/) is a wonderful service which makes it easy to
+get sites and applications up and running quickly.  Know what else is wonderful?
+Ruby!  This repo is intended to provide a cairn for getting a Ruby app (in this
+case [Sinatra](http://sinatrarb.com/)), running on Glitch.
 
+## `glitch.json`
 
-## Your Project
+The `glitch.json` file tells Glitch how to setup and launch your application.
+The format is standard
+[JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON),
+and only has a few keys that I am aware of.
+
+```json
+{
+  // What to run before the first time this app is launched?
+  "install": "bundle install",
+  // How to launch the app itself. $PORT is set at runtime.  It is almost
+  // always 3000, but better safe than sorry.
+  "start": "bundle exec rackup config.ru -p $PORT -s thin -o 0.0.0.0",
+  // Which files to watch for changes?
+  "watch": {
+    // When to re-run the install.
+    "install": {
+      "include": [
+        "^glitch\\.json$",
+        "^Gemfile.lock",
+        "^\\.env$"
+      ]
+    },
+    "restart": {
+      "exclude": [
+        "^vendor/bundle"
+      ],
+      "include": [
+        ".rb$"
+      ]
+    },
+    "throttle": 1000
+  }
+}
+```
 
 On the front-end,
 
