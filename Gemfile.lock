@@ -29,6 +29,7 @@ GEM
     rack-protection (2.1.0)
       rack
     rake (13.0.1)
+    rdiscount (2.2.0.2)
     ruby2_keywords (0.0.2)
     sinatra (2.1.0)
       mustermann (~> 1.0)
@@ -62,6 +63,7 @@ DEPENDENCIES
   rack
   rack-attack
   rake
+  rdiscount
   sinatra
   sinatra-contrib
   thin

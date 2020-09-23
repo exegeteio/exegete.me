@@ -10,7 +10,10 @@ case [Sinatra](http://sinatrarb.com/)), running on Glitch.
 The `glitch.json` file tells Glitch how to setup and launch your application.
 The format is standard
 [JSON](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON),
-and only has a few keys that I am aware of.
+and only has a few keys that I am aware of.  The information below is taken
+from a
+[post](https://support.glitch.com/t/language-support-on-glitch-a-list/5466)
+by [Annaia Berry](https://support.glitch.com/u/jarcane).
 
 ```json
 {
@@ -23,42 +26,33 @@ and only has a few keys that I am aware of.
   "watch": {
     // When to re-run the install.
     "install": {
+      // When these files change...
       "include": [
         "^glitch\\.json$",
         "^Gemfile.lock",
         "^\\.env$"
-      ]
-    },
-    "restart": {
-      "exclude": [
-        "^vendor/bundle"
       ],
+      // But not these files.
+      "exclude": [ ]
+    },
+    // When to restart the app.
+    "restart": {
+      // When these files change...
       "include": [
         ".rb$"
+      ],
+      // But not these files.
+      "exclude": [
+        "^vendor/bundle"
       ]
     },
+    // Maximum frequency at which to restart the app, in milliseconds.
     "throttle": 1000
   }
 }
 ```
 
-On the front-end,
-
-- Edit `views/index.html` to change the content of the webpage
-- `public/client.js` is the javacript that runs when you load the webpage
-- `public/style.css` is the styles for `views/index.html`
-- Drag in `assets`, like images or music, to add them to your project
-
-On the back-end,
-
-- your app starts at `server.js`
-- add frameworks and packages in `package.json`
-- safely store app secrets in `.env` (nobody can see this but you and people you invite)
-
-Click `Show` in the header to see your app live. Updates to your code will instantly deploy.
-
-
-## Made by [Glitch](https://glitch.com/)
+## Hosted by [Glitch](https://glitch.com/)
 
 **Glitch** is the friendly community where you'll build the app of your dreams. Glitch lets you instantly create, remix, edit, and host an app, bot or site, and you can invite collaborators or helpers to simultaneously edit code with you.
 

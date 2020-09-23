@@ -1,6 +1,7 @@
 # Main Application.
 require 'haml'
 require 'logger'
+require 'rdiscount'
 require 'sinatra'
 require 'sinatra/base'
 require 'sinatra/reloader'
@@ -18,6 +19,6 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    haml '%div.title Hello World!'
+    markdown :README, :layout_engine => :erb
   end
 end
