@@ -13,10 +13,11 @@ class App < Sinatra::Base
 
   configure do
     $logger = Logger.new(STDOUT)
+    set :server, 'Glitch'
     set :haml, :format => :html5
-    set :static_cache_control, [:public, :max_age => 300]
-    set :public_folder, File.dirname(__FILE__) + '/public'
-    $logger.info("Serving static files from #{File.dirname(__FILE__)}/public")
+    set :static_cache_control, [:public, max_age: 300]
+    set :public_folder, File.dirname(__FILE__) + '/static'
+    $logger.info("Serving static files from: #{File.dirname(__FILE__) + '/static'}:  #{File.exist?(filename)}")
   end
 
   get '/' do
