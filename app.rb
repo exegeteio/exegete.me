@@ -27,7 +27,7 @@ class App < Sinatra::Base
     begin
       haml params[:path].to_sym
     rescue Errno::ENOENT
-      halt 404
+      pass
     end
   end
 end
