@@ -6,11 +6,12 @@ body {
 
 body .content {
   max-width: 720px;
-  margin: inherit auto inherit auto;
-  padding: 1.5rem;
+  margin: auto;
+  margin-top: 2rem;
 }
 
 body header.content {
-  text-align: right;
-  padding: 0;
+    text-align: right;
+    margin-top: 1rem;
+    margin-bottom: -2rem;
 }
