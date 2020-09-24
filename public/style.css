@@ -1,5 +1,17 @@
 
+body {
+  padding: 0;
+  margin: 0;
+}
+
 body .content {
   max-width: 720px;
-  margin: auto;
+  margin: inherit auto inherit auto;
+  padding: 1.5rem;
+}
+
+body header.content {
+  text-align: right;
+  margin-bottom: -130px;
+  padding: 0;
 }
