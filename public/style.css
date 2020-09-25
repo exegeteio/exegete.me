@@ -1,17 +1,173 @@
+/* CSS files add styling rules to your content */
 
-body {
-  padding: 0;
+body#exe {
+  --content-width: 960px;
+  --nes-font-family: "Press Start 2P", helvetica, arial, sans-serif;
+  --body-font-family: var(--nes-font-family);
+  --color: inherit;
+  --link-color: #3740ff;
+  --background-color: #fff;
+  --line-height: inherit;
+  --font-size: inherit;
+}
+
+/*
+  .reader pages use the formatting from Firefox's reader in
+  sepia mode.
+*/
+
+body#exe.reader,
+body#exe.reader.light {
+  --body-font-family: helvetica, arial, sans-serif;
+  --color: #333;
+  --link-color: #3740ff;
+  --line-height: 1.6em;
+  --body-font-size: 20px;
+  cursor: auto;
+}
+
+body#exe.reader.sepia {
+  --background-color: #f4ecd8;
+  --color: #5b4636;
+}
+
+body#exe.reader.dark {
+  --background-color: #333;
+  --color: #eee;
+}
+
+body#exe {
+  background-color: var(--background-color);
+  color: var(--color);
+  font-family: var(--nes-font-family);
+  font-display: optional;
+  display: grid;
+  height: 100vh;
+  grid-template-rows: auto 1fr auto;
   margin: 0;
+  justify-items: center;
 }
 
-body .content {
-  max-width: 720px;
-  margin: auto;
-  margin-top: 2rem;
+#exe main {
+  max-width: var(--content-width);
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size);
+  line-height: var(--line-height);
 }
 
-body header.content {
-    text-align: right;
+#exe a {
+  color: var(--link-color);
+}
+
+#exe .nes-btn.is-primary {
+    color: #fff;
+}
+
+#exe main h1 {
+  line-height: 3rem;
+  font-family: var(--nes-font-family);
+}
+
+#exe header,
+#exe main,
+#exe footer {
+  max-width: var(--content-width);
+  width: 100%;
+  height: 100%;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+#exe main {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+#exe main #content {
+  display: flex;
+  align-items: center;
+}
+
+#exe header > nav {
+  color: #373fff;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+#exe header > nav a {
+  margin-left: 2rem;
+  line-height: 2rem;
+}
+
+#exe header > nav a:first-child {
+  margin-left: 0;
+}
+
+#exe header > nav .pull-right {
+  float: right;
+  display: inline-block;
+  text-align: right;
+}
+
+#exe header > nav .pull-right a {
+  margin-left: 0.5em;
+}
+
+#exe header > nav .pull-right a i {
+  margin-top: 4px;
+}
+
+#exe header > nav a.lg {
+  font-size: 2em;
+}
+
+#exe footer {
+  border-top: 1px solid #ccc;
+  padding: 2rem;
+  text-align: center;
+  color: #333;
+  font-size: 0.8rem;
+}
+
+#exe footer .divider:before {
+  content: "|";
+}
+
+#exe img.img-center {
+  margin: 1rem auto;
+  text-align: center;
+  display: block;
+  border: 1px solid #ccc;
+  padding: 0.25rem;
+}
+
+#exe a.nodecorate,
+#exe a.nodecorate:hover,
+#exe a.nodecorate:visited {
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 470px) {
+  #exe header > nav > a,
+  #exe header > nav > a:first-child,
+  #exe header > nav .pull-right,
+  #exe main h1 {
+    display: block;
+    text-align: center;
+    float: none;
+    margin-left: 0;
+  }
+  
+  #exe header > nav .pull-right a {
+    margin-left: 0;
+  }
+  #exe footer .divider:before {
+    content: none;
+  }
+  #exe footer .divider {
+    display: block;
+  }
+  #exe footer a {
     margin-top: 1rem;
-    margin-bottom: -2rem;
+  }
 }
