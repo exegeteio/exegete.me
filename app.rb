@@ -35,7 +35,7 @@ class App < Sinatra::Base
   
   get '/blog/:path' do |path|
     begin
-      haml params[:path].to_sym, layout: 'blog.haml'
+      haml params[:path].to_sym
     rescue Errno::ENOENT
       pass
     end

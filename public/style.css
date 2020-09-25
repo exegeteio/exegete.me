@@ -121,6 +121,14 @@ body#exe {
   font-size: 2em;
 }
 
+#exe header > nav a.readermode {
+  display: none;
+}
+
+#exe.reader header > nav a.readermode {
+  display: inline;
+}
+
 #exe footer {
   border-top: 1px solid #ccc;
   padding: 2rem;
