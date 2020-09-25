@@ -7,27 +7,29 @@
     %meta{name: 'viewport', content: 'width=device-width, initial-scale=1'}
     %link{rel: 'shortcut icon', href: '/favicon.ico'}
     %link{rel: 'canonical', href: "https://www.exegete.me/#{request.path}"}
-    %title Exegete.me
+    %title= "Exegete.me #{yield_content :title}"
   %body#exe
     %header
       %nav
-        %a.brand{href: '/'}
+        %a.brand{href: '/'}<
           %span Exegete
-        %a{href: '/blog/'}
+        %a{href: '/blog/'}<
           %span Blog
         .pull-right
-          %a{href: 'https://twitter.com/exegete46', title: 'Exegete on Twitter'}
+          %a{href: 'https://twitter.com/exegete46', title: 'Exegete on Twitter'}<
             %i.nes-icon.twitter
-          %a{href: 'https://github.com/exegete46', title: 'Exegete on Github'}
+          %a{href: 'https://github.com/exegete46', title: 'Exegete on Github'}<
             %i.nes-icon.github
-          %a{href: 'https://twitch.tv/exegete46', title: 'Exegete on Twitch'}
+          %a{href: 'https://twitch.tv/exegete46', title: 'Exegete on Twitch'}<
             %i.nes-icon.twitch
     %main
-      = yield
+      %h1= yield_content :h1
+      #content= yield
     %footer.small
       &copy; 2019 - Time.now()
       %span.divider
       %a.nes-btn.is-primary{href: 'mailto:exegete@hey.com?subject=Website+Contact', title: 'Contact Exegete'}
+        Contact
     %link{href: 'https://unpkg.com/nes.css@latest/css/nes.min.css', rel: :stylesheet, defer: true}
     %link{href: 'https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap', rel: :stylesheet, defer: true}
     %script{src: 'https://unpkg.com/stimulus/dist/stimulus.umd.js'}

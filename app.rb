@@ -4,6 +4,7 @@ require 'logger'
 require 'rdiscount'
 require 'sinatra'
 require 'sinatra/base'
+require "sinatra/content_for"
 require 'sinatra/reloader'
 
 # Log more quickly.
@@ -11,6 +12,7 @@ $stdout.sync = true
 
 class App < Sinatra::Base
   register Sinatra::Reloader
+  helpers Sinatra::ContentFor
 
   configure do
     $logger = Logger.new(STDOUT)
@@ -20,12 +22,20 @@ class App < Sinatra::Base
   end
 
   get '/' do
-    markdown File.read('README.md')
+    haml :index
   end
   
   get '/:path' do |path|
     begin
       haml params[:path].to_sym
+    rescue Errno::ENOENT
+      pass
+    end
+  end
+  
+  get '/blog/:path' do |path|
+    begin
+      haml params[:path].to_sym, layout: 'blog.haml'
     rescue Errno::ENOENT
       pass
     end
