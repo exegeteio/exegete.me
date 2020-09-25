@@ -34,6 +34,7 @@ body#exe.reader.sepia {
 body#exe.reader.dark {
   --background-color: #333;
   --color: #eee;
+  --link-color: #0095dd;
 }
 
 body#exe {
