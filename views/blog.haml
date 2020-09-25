@@ -1,0 +1,12 @@
+- content_for :title do
+  | Blog
+- content_for :h1 do
+  Blog
+- content_for :body_class do
+  reader
+
+.content
+  %section.blog-entry.nes-container.is-rounded
+    %a{href: '/blog/sinatra-on-glitch', alt: 'Sinatra on Glitch'}
+      %h2 Sinatra on Glitch
+    %p What is Glitch? Why should I care? What can I run?

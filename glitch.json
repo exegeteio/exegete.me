@@ -15,7 +15,7 @@
       ],
       "include": [
         ".rb$",
-        "views/**/*"
+        "views/*"
       ]
     },
     "throttle": 1000
