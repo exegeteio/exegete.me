@@ -21,7 +21,7 @@ body#exe.reader.light {
   --body-font-family: helvetica, arial, sans-serif;
   --color: #333;
   --link-color: #3740ff;
-  --line-height: 1.6em;
+  --line-height: 1.6rem;
   --body-font-size: 20px;
   cursor: auto;
 }
@@ -66,6 +66,7 @@ body#exe {
 
 #exe main h1 {
   line-height: 3rem;
+  margin-bottom: 1rem;
   font-family: var(--nes-font-family);
 }
 
@@ -111,7 +112,7 @@ body#exe {
 }
 
 #exe header > nav .pull-right a {
-  margin-left: 0.5em;
+  margin-left: 0.5rem;
 }
 
 #exe header > nav .pull-right a i {
@@ -119,7 +120,7 @@ body#exe {
 }
 
 #exe header > nav a.lg {
-  font-size: 2em;
+  font-size: 2rem;
 }
 
 #exe header > nav a.readermode {

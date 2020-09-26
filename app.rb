@@ -32,12 +32,4 @@ class App < Sinatra::Base
       pass
     end
   end
-  
-  get '/blog/:path' do |path|
-    begin
-      haml params[:path].to_sym
-    rescue Errno::ENOENT
-      pass
-    end
-  end
 end
