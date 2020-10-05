@@ -11,25 +11,25 @@
   in Vue, React, Angular, Svelte and other wonderful front end
   frameworks.  This got me thinking: Can I accomplish similar
   functionality using Rails, and preferably with a light-weight
-  Javascript front end.
+  Javascript front end?
 
 %p
   To that end, I began work, like many Twitch streamers do, on
   an overlay bot to overlay Twitch chat onto the stream itself.
   My intent was to learn how to do server-rendered HTML,
   delivered like others have done in Javascript.  Rails all the
-  way down, as it were.  Let's talk about the Rails tech which
-  made this possible.
-  %img.max-width{src: '', title: 'Screenshot of chat overlay'}
+  way down, as it were.
+
+%p Let's talk through the Rails tech I used to make this happen.
 
 %h2 Action Cable
 %p
   %a{href: 'https://guides.rubyonrails.org/action_cable_overview.html', target: :_blank}
     Action Cable
-  is a framework within Rails for communcating over WebSockets
-  between a browser and a Rails server.  In the overlay bot,
+  is a framework for communcating over WebSockets between
+  a browser and a Rails server.  In the overlay bot,
   Action Cable is used to transfer inbound messages from
-  Twitch (via
+  Twitch (via the phenomenal
   %a{href: 'https://github.com/instafluff/ComfyJS', target: :_blank}
     Comfy.js
   ) to the Rails backend.  Once there, the message is rendered
@@ -59,6 +59,29 @@
   For my application, I'm using Active Job to render chat messages,
   and broadcast those messages over Action Cable.  Included in this
   is 
-  %a{href: '', target: :_blank}
+  %a{href: 'https://github.com/exegete46/number-two/blob/main/app/jobs/chat_message_job.rb#L16', target: :_blank}
     fetching and caching the Twitch users' avatar URL.
-  
+  This way, I do not have a web request blocking a response while
+  Twitch's API is looking up an avatar URL.
+
+%h2 Stimulus
+%p
+  Ok,
+  %a{href: 'https://stimulusjs.org', target: :_blank}
+    Stimulus
+  isn't
+  %em really
+  Rails tech; it is a stand-alone Javascript framework.  Stimulus
+  tries to be a simple framework for binding Javascript actions
+  to HTML elements.  For my purposes, it allows me to add
+  %a{href: 'https://github.com/exegete46/number-two/blob/main/app/views/overlay/index.html.haml#L6', target: :_blank}
+    a little markup to my HAML
+  and
+  %a{href: 'https://github.com/exegete46/number-two/blob/main/app/javascript/controllers/chat_controller.js#L17', target: :_blank}
+    act on it in Javascript.
+  There is a lot of boilerplate code in my
+  %a{href: 'https://github.com/exegete46/number-two/tree/main/app/javascript/controllers', target: :_blank}
+    Stimulus controllers,
+  but the amount of actual Javascript is kept fairly low.
+
+%h2 Review
