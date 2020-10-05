@@ -90,6 +90,10 @@ body#exe {
   align-items: center;
 }
 
+#exe main .content section {
+  margin-bottom: 1.5rem;
+}
+
 #exe header > nav {
   color: #373fff;
   padding-top: 1rem;
