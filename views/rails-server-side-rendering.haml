@@ -43,4 +43,22 @@
   %a{href: 'https://github.com/exegete46/number-two/blob/main/app/channels/twitch_messages_channel.rb', target: :_blank}
     server side
   channels to talk on.   The channels allow messages of many
-  types to be transported over the same websocket.  
+  types to be transported over the same websocket.
+
+%h2 Active Job
+%p
+  %a{href: 'https://guides.rubyonrails.org/active_job_basics.html', target: :_blank}
+    Active Job
+  is a way of spinning off a Job into the background, while Rails
+  finishes serving a web request.  The most common example is
+  sending an email.  A web request comes in, spins off a job, and
+  returns a 302 redirect.  In the background, Active Job renders
+  the HTML, CSS, etc, and then sends the email.
+
+%p
+  For my application, I'm using Active Job to render chat messages,
+  and broadcast those messages over Action Cable.  Included in this
+  is 
+  %a{href: '', target: :_blank}
+    fetching and caching the Twitch users' avatar URL.
+  
