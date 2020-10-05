@@ -16,19 +16,31 @@
 %p
   To that end, I began work, like many Twitch streamers do, on
   an overlay bot to overlay Twitch chat onto the stream itself.
+  My intent was to learn how to do server-rendered HTML,
+  delivered like others have done in Javascript.  Rails all the
+  way down, as it were.  Let's talk about the Rails tech which
+  made this possible.
   %img.max-width{src: '', title: 'Screenshot of chat overlay'}
 
-%h2 Comfy.js
-%p
-  Comfy.js is a Javascript SDK for interacting with Twitch chat
-  in the browser.  
-  TODO: Finish this.
-  
 %h2 Action Cable
 %p
   %a{href: 'https://guides.rubyonrails.org/action_cable_overview.html', target: :_blank}
     Action Cable
   is a framework within Rails for communcating over WebSockets
-  between a browser and a Rails server.  Action Cable is used
-  to transfer inbound messages from Comfy.js to the Rails backend.
-  TODO: Finish this.
+  between a browser and a Rails server.  In the overlay bot,
+  Action Cable is used to transfer inbound messages from
+  Twitch (via
+  %a{href: 'https://github.com/instafluff/ComfyJS', target: :_blank}
+    Comfy.js
+  ) to the Rails backend.  Once there, the message is rendered
+  into HTML, and sent back to the browser via ActionCable.
+
+%p
+  Action Cable makes this easy with both
+  %a{href: 'https://github.com/exegete46/number-two/blob/main/app/javascript/channels/twitch_messages_channel.js', target: :_blank}
+    client side
+  and
+  %a{href: 'https://github.com/exegete46/number-two/blob/main/app/channels/twitch_messages_channel.rb', target: :_blank}
+    server side
+  channels to talk on.   The channels allow messages of many
+  types to be transported over the same websocket.  
