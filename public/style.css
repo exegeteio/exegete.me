@@ -90,7 +90,8 @@ body#exe {
   align-items: center;
 }
 
-#exe main .content section {
+#exe main .content section,
+#exe p.nes-container {
   margin-bottom: 1.5rem;
 }
 
