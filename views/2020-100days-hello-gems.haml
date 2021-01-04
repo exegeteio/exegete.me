@@ -1,0 +1,64 @@
+- content_for :title do
+	| Hello, Gems!
+- content_for :h1 do
+	Hello, Gems!
+- content_for :body_class do
+	reader
+
+.content
+	%p.nes-container.is-rounded
+		%em Heads up!
+		This is a part of the
+		%a{href: '/2020-100days-what-why'} #100DaysOfBlog series.
+
+	%p
+		Gems are what Ruby uses for dependencies.  The first Gem we need will be
+		%a{ href: 'https://bundler.io/',
+				title: 'Bundler' }
+			Bundler.
+		Bundler can help you create, install, and manage your Gems.  Check out their
+		docs to get started.
+		%em Gotcha!
+		Something that threw me early on is that "bundler" is not the command for the
+		Bundler app.  The command is actually "bundle".
+
+	%p
+		The next thing we'll use is to create a Gemfile using bundler:
+		%pre
+			%code.block
+				$ bundle init
+				Writing new Gemfile to hello-gems/Gemfile
+		Take a look at this brand new Gemfile:
+		%script{src: 'https://gist.github.com/exegete46/368d24bf287569bb7d199472b2b2026b.js'}
+		This is telling Bundler to use RubyGems.org to get our Gems from, and adds a
+		helper for installing Gems from Github.  It also has a comment for the Rails
+		gem.  We don't need that at the moment, but let's add
+		%a{ href: 'http://whatisthor.com/',
+				title: 'Thor CLI Tools' }
+			Thor.
+
+	%p
+		Now we can make make our
+		%a{ href: '/2020-100days-hello-world',
+				title: 'Hello, World! article'}
+			Hello, World!
+		example more devout:
+		%script{src: 'https://gist.github.com/exegete46/81de9ff9077c7d16b9f386b7f7652a1a.js'}
+		This code sets up a new class
+		%code Hello
+		which inherits from the
+		%code Thor
+		Gem, and sets up a
+		%code hello
+		command.  If we put this into app.rb, we can run the code with:
+		%pre
+			%code.block
+				$ ruby app.rb hello Mundo
+				Hello, Mundo!
+
+	%p
+		There you are!  Your first usage of a Gem!  Head over to
+		%a{ href: 'https://rubygems.org',
+				title: 'Ruby Gems' }
+			RubyGems.org
+		to look around at all the available Gems.

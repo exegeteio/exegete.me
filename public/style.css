@@ -9,6 +9,8 @@ body#exe {
   --background-color: #fff;
   --line-height: inherit;
   --font-size: inherit;
+  --code-bg-color: #CCC;
+  --code-color: #000;
 }
 
 /*
@@ -160,6 +162,30 @@ body#exe {
 #exe a.nodecorate:hover,
 #exe a.nodecorate:visited {
   text-decoration: none;
+}
+
+#exe .block {
+  display: block;
+}
+
+#exe code {
+  background-color: var(--code-bg-color);
+  border-radius: 0.25rem;
+  border: 1px solid var(--code-color);
+  color: var(--code-color);
+  display: inline-block;
+  font-family: monospace;
+  margin-bottom: 0.25rem;
+  padding: 0.25rem;
+}
+#exe code.block {
+  border-radius: 1rem;
+  padding: 1.5rem;
+}
+
+#exe .gist {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 @media only screen and (max-width: 470px) {

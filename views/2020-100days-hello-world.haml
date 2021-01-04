@@ -5,29 +5,30 @@
 - content_for :body_class do
 	reader
 
-%p.nes-container.is-rounded
-	%em Heads up!
-	This is a part of the
-	%a{href: '/2020-100days-what-why'} #100DaysOfBlog series.
+.content
+	%p.nes-container.is-rounded
+		%em Heads up!
+		This is a part of the
+		%a{href: '/2020-100days-what-why'} #100DaysOfBlog series.
 
-%p
-	Ruby, like most imperative languages are fairly simple to get started with.
-	Here is the code to print "Hello, World!" to the screen.
-	%script{src: 'https://gist.github.com/exegete46/9d2bfc0dfd1587a3c3328659f07f1c86.js'}
-	Pretty straight forward, right?  But that's not really all that useful.
+	%p
+		Ruby, like most imperative languages are fairly simple to get started with.
+		Here is the code to print "Hello, World!" to the screen.
+		%script{src: 'https://gist.github.com/exegete46/9d2bfc0dfd1587a3c3328659f07f1c86.js'}
+		Pretty straight forward, right?  But that's not really all that useful.
 
-%p
-	Let's get the name we're welcoming from the command line:
-	%script{src: 'https://gist.github.com/exegete46/453daacad7dfaa56b747b69e22b1a0e9.js'}
-	Not much of a change, but what's going on?
-	%code ARGV
-	is an array which contains all of the arguments from the command line. In this
-	case, I'm using
-	%code join(' ')
-	to combine all those values into a single string, then printing to the screen
-	with the variable embedded in a string.
+	%p
+		Let's get the name we're welcoming from the command line:
+		%script{src: 'https://gist.github.com/exegete46/453daacad7dfaa56b747b69e22b1a0e9.js'}
+		Not much of a change, but what's going on?
+		%code ARGV
+		is an array which contains all of the arguments from the command line. In this
+		case, I'm using
+		%code join(' ')
+		to combine all those values into a single string, then printing to the screen
+		with the variable embedded in a string.
 
-%p
-	It's hard to get a feel for a language from such simple code.
-	We'll get there.
-	-# TODO:  Put in a link to tomorrow.
+	%p
+		It's hard to get a feel for a language from such simple code.
+		We'll get there.
+		-# TODO:  Put in a link to tomorrow.
