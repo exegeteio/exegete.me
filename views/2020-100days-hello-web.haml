@@ -1,0 +1,86 @@
+- content_for :title do
+	| Hello, Web!
+- content_for :h1 do
+	Hello, Web!
+- content_for :body_class do
+	reader
+
+.content
+	%p.nes-container.is-rounded
+		%em Heads up!
+		This is a part of the
+		%a{href: '/2020-100days-what-why'} #100DaysOfBlog series.
+
+	%p
+		There are many options for getting Ruby on the web.  If you're familiar
+		with Express, Flask, or other microframeworks, then
+		%a{ href: 'http://sinatrarb.com/',
+				title: 'Sinatra framework' }
+			Sinatra
+		may be up your alley.  Let's creat the customary "Hello, Web!" app with
+		Sinatra.
+		%pre
+			%code.block
+				$ bundle init
+				Writing new Gemfile to hello-sinatra/Gemfile
+				$ bundle add sinatra
+		That should have installed Sinatra and its dependencies.  Let's create
+		an
+		%code app.rb
+		file, and add some code:
+		%script{src: 'https://gist.github.com/exegete46/b0ef33afcd55f650cdf0223572bdff6c.js'}
+		Fairly straight forward.  Will have
+		%code /
+		for "Hello, Web!" and
+		%code /&lt;something&gt;
+		for "Hello, &lt;something&gt;!".
+
+	%p
+		Let's give that a run!
+		%pre
+			%code.block
+				$ $ ruby ./app.rb        
+				== Sinatra (v2.1.0) has taken the stage on 3000 for development with backup from WEBrick
+		As you can see, the server is running by default on port 3000 on localhost.
+		"WEBrick" you see mentioned is a Ruby web server which Sinatra uses behind
+		the scenes.  You can use
+		%a{ href: 'https://stackoverflow.com/questions/6278817/is-sinatra-multi-threaded/6282999#6282999',
+				title: 'Stack Overflow Answer to "Is Sinatra Multi-Threaded',
+				target: :_blank }
+			other web servers to suppor threading
+		if you're headed to production, but WEBrick is a good start.
+
+	%p
+		In your browser, open
+		%a{href: 'http://localhost:3000/', title: 'Port 3000 on localhost', target: :_blank}
+			port 3000 on localhost
+		to view the running app.  Or,
+		%a{ href: 'http://localhost:3000/Mundo',
+				title: 'Port 3000 on localhost, with "Mundo" in the name',
+				target: :_blank }
+			port 3000 with a name on the end,
+		to be greated by name.
+
+	%p
+		Sinatra is a Domain Specific Language (DSL), which are very easy to create
+		in Ruby.  This makes the Sinatra app above a good example of why I find
+		Ruby easy to read.  If you understand what a 
+		%code GET
+		statement is, I can logic out that line 6 says, "when GET'ing /, run this
+		code".  Under the hood, Sinatra declairs a
+		%a{ href: 'https://github.com/sinatra/sinatra/blob/master/lib/sinatra/base.rb#L1423',
+				title: 'Sinatra source code for get function',
+				target: :_blank }
+			%code get()
+			function,
+		which takes a URL string and a block of code.  There's not actually much
+		magic; Ruby allows you to omit parentheses and other notations where it
+		can infer the usage.
+	
+	%p
+		Hopefully this was a very simple, very quick, way of getting an application
+		out on the web.  Check out my post about
+		%a{href: '/sinatra-on-glitch', title: "Sinatra On Glitch article on exegete.me"}
+			Sinatra on Glitch
+		for a quick way to get a Sinatra app running in a production-like
+		environment.
